@@ -1,0 +1,14 @@
+<h1>Distilleries</h1>
+<ul id="scotches">
+</ul>
+<script type="text/javascript">
+  $(function() {
+    var Scotch = new Databound('/scotches');
+    Scotch.where().then(function(scotches) {
+      var html = scotches.map(function(scotch) {
+        return '<li>' + scotch.name + '</li>';
+      }).join('');
+      $('#scotches').html(html);
+    });
+  });
+</script>
